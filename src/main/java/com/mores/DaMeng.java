@@ -48,8 +48,8 @@ public class DaMeng extends BasePlugin {
                                 try (InputStream inputStream = response.getEntity().getContent()) {
                                     Document doc = Jsoup.parse(inputStream, null, url);
                                     Element stats = doc.selectFirst("div[class=stats-container]");
-                                    if (stats==null){
-                                        message.reply("不存在ID为"+arguments[0]+"的玩家");
+                                    if (stats == null) {
+                                        message.reply("不存在ID为" + arguments[0] + "的玩家");
                                         return;
                                     }
                                     Elements rows = stats.select("div[class=row]");
@@ -62,10 +62,10 @@ public class DaMeng extends BasePlugin {
                                     MultipleCardComponent cardComponent = new CardBuilder()
                                             .setTheme(Theme.PRIMARY)
                                             .setSize(Size.LG)
-                                            .addModule(new HeaderModule(new PlainTextElement((String) arguments[0],false)))
-                                            .addModule(new SectionModule(new PlainTextElement("击杀数："+data.get("Kills")),null,null))
-                                            .addModule(new SectionModule(new PlainTextElement("死亡数："+data.get("Deaths")),null,null))
-                                            .addModule(new SectionModule(new PlainTextElement("KD："+data.get("K/D Ratio")),null,null))
+                                            .addModule(new HeaderModule(new PlainTextElement((String) arguments[0], false)))
+                                            .addModule(new SectionModule(new PlainTextElement("击杀数：" + data.get("Kills")), null, null))
+                                            .addModule(new SectionModule(new PlainTextElement("死亡数：" + data.get("Deaths")), null, null))
+                                            .addModule(new SectionModule(new PlainTextElement("KD：" + data.get("K/D Ratio")), null, null))
                                             .build();
                                     message.reply(cardComponent);
                                 } catch (IOException e) {
