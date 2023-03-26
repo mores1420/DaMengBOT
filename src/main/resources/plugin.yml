@@ -3,3 +3,7 @@ version: 1.0.0
 main: com.mores.DaMeng
 description: "大萌BOT"
 api-version: 0.48.2
+commands:
+  你好:
+    description: hello
+    usage: /你好
