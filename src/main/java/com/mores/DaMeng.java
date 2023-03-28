@@ -31,10 +31,10 @@ public class DaMeng extends BasePlugin {
         getLogger().info("大萌BOT已成功加载");
 
         new JKookCommand("2042")
-                .addArgument(String.class)
+                .addOptionalArgument(String.class, "None")
                 .executesUser((sender, arguments, message) -> {
                     String senderName = sender.getName();
-                    if (arguments.length == 0) {
+                    if (arguments.length >= 1 & arguments[0] == "None") {
                         message.reply(senderName + "你好，请问我有什么可以帮助你的？");
                     } else {
                         String url = "https://battlefieldtracker.com/bf2042/profile/origin/" + arguments[0] + "/overview";
